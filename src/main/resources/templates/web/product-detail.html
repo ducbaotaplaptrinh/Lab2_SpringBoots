@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.name}">Chi tiết sản phẩm</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 40px; }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 40px;
+        }
+        .product-image { flex: 1; }
+        .product-image img { 
+            width: 100%; 
+            border-radius: 8px; 
+            object-fit: cover; 
+        }
+        .product-info { flex: 1.5; display: flex; flex-direction: column; justify-content: center; }
+        .product-title { font-size: 2em; margin-bottom: 10px; color: #333; }
+        .product-category { 
+            font-size: 0.9em; 
+            color: #fff; 
+            background-color: #007bff;
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: bold; 
+            margin-bottom: 15px; 
+        }
+        .product-price { font-size: 1.8em; color: #dc3545; font-weight: bold; margin-bottom: 20px; }
+        .product-desc { font-size: 1em; color: #555; line-height: 1.6; margin-bottom: 30px; }
+        .btn-back { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #6c757d; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px;
+            width: fit-content;
+        }
+        .btn-back:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. Hình ảnh sản phẩm -->
+        <div class="product-image">
+            <img th:src="${product.image}"
+                 th:alt="${product.name}"
+                 onerror="this.src='https://placehold.co/400x300?text=No+Image'" />
+        </div>
+
+        <!-- Thông tin chi tiết -->
+        <div class="product-info">
+            <!-- 2. Tên sản phẩm -->
+            <h1 class="product-title" th:text="${product.name}">Tên sản phẩm</h1>
+            
+            <!-- 3. Tên danh mục sản phẩm (lấy từ quan hệ @ManyToOne) -->
+            <div class="product-category"
+                 th:text="${product.category != null ? product.category.name : 'Chưa phân loại'}">
+                Danh mục
+            </div>
+            
+            <!-- 4. Giá sản phẩm -->
+            <div class="product-price"
+                 th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">
+                0 VNĐ
+            </div>
+            
+            <!-- 5. Mô tả sản phẩm -->
+            <p class="product-desc" th:text="${product.description}">Mô tả chi tiết sản phẩm...</p>
+            
+            <a href="/products" class="btn-back">← Quay lại danh sách</a>
+        </div>
+    </div>
+
+</body>
+</html>

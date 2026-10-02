@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Bàn Phím Cơ Không Dây K8",
+    "description": "Bàn phím cơ không dây kết nối Bluetooth/Type-C, trang bị Switch Gateron và LED RGB linh hoạt.",
+    "price": 1250000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSELm7J9lmUQG3DM9oD6y5mcjjhkbYiiVmy5j683gcl8w&s=10",
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "name": "Chuột Không Dây Chống Đau Cổ Tay",
+    "description": "Chuột Ergo công xưởng giúp bảo vệ cổ tay, độ phân giải DPI điều chỉnh từ 800 đến 3200.",
+    "price": 450000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhMwbJw2LaHjtIGUsm3AmcMqaRS79bH6X4I-Gn0K2Tng&s=10",
+    "categoryId": 1
+  },
+  {
+    "id": 3,
+    "name": "Màn Hình 27 inch 144Hz IPS",
+    "description": "Màn hình tấm nền IPS độ phân giải Full HD, tần số quét 144Hz mượt mà cho đồ họa và chơi game.",
+    "price": 4200000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNsRu2d8A_obW-3XgVar__CztGCxVv1q1bvBwB4ouLQ&s",
+    "categoryId": 2
+  },
+  {
+    "id": 4,
+    "name": "Tai Nghe Chống Ồn ANC Pro",
+    "description": "Tai nghe bluetooth kết nối không dây, tích hợp công nghệ chống ồn chủ động và micro đàm thoại rõ nét.",
+    "price": 2100000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4EHQv0HMKG_sei5Y4o6XXD8-YVmaDwuJQgv9DO-XCPw&s",
+    "categoryId": 3
+  },
+  {
+    "id": 5,
+    "name": "Lót Chuột Bo Viền Khổ Cực Đại",
+    "description": "Lót chuột kích thước 90x40cm, mặt vải trơn mượt, đế cao su chống trượt tuyệt đối.",
+    "price": 150000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGGBCcH8N4CaCbcpvP4cp6hXuHh1ZQHnbVGTI_axWHxQ&s=10",
+    "categoryId": 1
+  }
+]

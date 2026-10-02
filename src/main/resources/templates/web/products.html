@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách &amp; Tìm kiếm sản phẩm</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        h1 { text-align: center; color: #333; }
+        
+        /* Style cho Form Tìm Kiếm */
+        .search-form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            max-width: 1000px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.9em; font-weight: bold; color: #555; }
+        .form-group input, .form-group select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        .btn-search {
+            padding: 9px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            align-self: flex-end;
+        }
+        .btn-search:hover { background-color: #0056b3; }
+        .btn-reset {
+            padding: 9px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            align-self: flex-end;
+        }
+
+        /* Style cho Danh sách Sản phẩm */
+        .product-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .product-card {
+            background: #fff; border: 1px solid #ddd; border-radius: 8px;
+            width: 250px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .product-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; }
+        .product-title { font-size: 1em; font-weight: bold; margin: 10px 0 5px; color: #2c3e50; }
+        .product-price { font-size: 1.1em; color: #dc3545; font-weight: bold; }
+        .product-category-tag {
+            font-size: 0.78em; color: #007bff;
+            background: #e8f0fe; padding: 2px 8px;
+            border-radius: 20px; display: inline-block; margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Danh Sách Sản Phẩm</h1>
+
+    <!-- FORM LỌC VÀ TÌM KIẾM -->
+    <form action="/products" method="get" class="search-form">
+        <!-- 1. Lọc theo danh mục — DYNAMIC từ database -->
+        <div class="form-group">
+            <label for="categoryId">Danh mục:</label>
+            <select name="categoryId" id="categoryId">
+                <option value="" th:selected="${categoryId == null}">-- Tất cả danh mục --</option>
+                <!-- Render động các danh mục lấy từ DB qua CategoryService -->
+                <option th:each="cat : ${categories}"
+                        th:value="${cat.id}"
+                        th:text="${cat.name}"
+                        th:selected="${categoryId != null && categoryId == cat.id}">
+                </option>
+            </select>
+        </div>
+
+        <!-- 2. Tìm theo tên sản phẩm -->
+        <div class="form-group">
+            <label for="keyword">Từ khóa:</label>
+            <input type="text" name="keyword" id="keyword" placeholder="Nhập tên sản phẩm..." th:value="${keyword}">
+        </div>
+
+        <!-- 3. Tìm theo khoảng giá -->
+        <div class="form-group">
+            <label for="fromPrice">Giá từ:</label>
+            <input type="number" name="fromPrice" id="fromPrice" placeholder="0" th:value="${fromPrice}">
+        </div>
+
+        <div class="form-group">
+            <label for="toPrice">Đến giá:</label>
+            <input type="number" name="toPrice" id="toPrice" placeholder="50000000" th:value="${toPrice}">
+        </div>
+
+        <!-- Nút bấm -->
+        <button type="submit" class="btn-search">Tìm kiếm</button>
+        <a href="/products" class="btn-reset">Đặt lại</a>
+    </form>
+
+    <!-- HIỂN THỊ DANH SÁCH SẢN PHẨM SAU KHI LỌC -->
+    <div class="product-container">
+        <div class="product-card" th:each="product : ${products}">
+            <a th:href="@{/products/{id}(id=${product.id})}" style="text-decoration: none; color: inherit;">
+                <!-- Ảnh sản phẩm với fallback khi URL lỗi -->
+                <img th:src="${product.image}"
+                     th:alt="${product.name}"
+                     onerror="this.src='https://placehold.co/250x160?text=No+Image'" />
+                <!-- Tag tên danh mục -->
+                <span class="product-category-tag"
+                      th:text="${product.category != null ? product.category.name : 'Chưa phân loại'}">
+                </span>
+                <div class="product-title" th:text="${product.name}">Tên sản phẩm</div>
+            </a>
+            <div class="product-price" th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">0 VNĐ</div>
+        </div>
+
+        <!-- Thông báo nếu không tìm thấy sản phẩm phù hợp -->
+        <div th:if="${#lists.isEmpty(products)}" style="text-align: center; color: #888; width: 100%;">
+            <p>Không tìm thấy sản phẩm nào phù hợp với điều kiện tìm kiếm.</p>
+        </div>
+    </div>
+
+</body>
+</html>
