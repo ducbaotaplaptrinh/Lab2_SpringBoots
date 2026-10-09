@@ -1,18 +1,18 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.Category;
 import com.example.demo.Model.Product;
 import com.example.demo.Service.CategoryService;
 import com.example.demo.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
@@ -21,43 +21,99 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
-    // YÊU CẦU 3 & 5: Danh sách sản phẩm kết hợp Lọc và Tìm kiếm
-    // Xử lý được cả http://localhost:8080/products VÀ các URL chứa Query Params
-    @GetMapping("/products")
-    public String products(
+    /**
+     * 1. Hiển thị danh sách sản phẩm (kết hợp Tìm kiếm & Lọc theo Danh mục)
+     */
+    @GetMapping
+    public String listProducts(
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) String keyword,
             @RequestParam(required = false) Double fromPrice,
             @RequestParam(required = false) Double toPrice,
             Model model) {
 
-        // Gọi Service lọc danh sách từ database
-        List<Product> filteredList = productService.filterProducts(categoryId, keyword, fromPrice, toPrice);
+        List<Product> products = productService.filterProducts(categoryId, keyword, fromPrice, toPrice);
 
-        // Truyền danh sách sản phẩm và tham số lọc sang View
-        model.addAttribute("products", filteredList);
+        model.addAttribute("products", products);
         model.addAttribute("categoryId", categoryId);
         model.addAttribute("keyword", keyword);
         model.addAttribute("fromPrice", fromPrice);
         model.addAttribute("toPrice", toPrice);
-
-        // Truyền danh sách danh mục để render dropdown động từ DB
         model.addAttribute("categories", categoryService.getAllCategories());
 
-        return "web/products"; // Trỏ tới file templates/web/products.html
+        return "products/products-list";
     }
 
-    // YÊU CẦU 4: Route xem chi tiết sản phẩm theo ID
-    @GetMapping("/products/{productId}")
-    public String showProductDetail(@PathVariable("productId") Long productId, Model model) {
-        Product product = productService.getProductById(productId);
+    /**
+     * 2. Hiển thị form Thêm mới sản phẩm (nạp danh sách danh mục để chọn dropdown)
+     */
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "products/add-product";
+    }
 
-        // Nếu không tìm thấy sản phẩm, chuyển hướng về trang danh sách
+    /**
+     * 3. Xử lý lưu sản phẩm mới
+     */
+    @PostMapping("/add")
+    public String addProduct(@ModelAttribute("product") Product product) {
+        if (product.getCategory() != null && product.getCategory().getId() != null) {
+            Category category = categoryService.getCategoryById(product.getCategory().getId());
+            product.setCategory(category);
+        }
+        productService.saveProduct(product);
+        return "redirect:/products";
+    }
+
+    /**
+     * 4. Hiển thị form Cập nhật sản phẩm theo ID
+     */
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model) {
+        Product product = productService.getProductById(id);
         if (product == null) {
             return "redirect:/products";
         }
-
         model.addAttribute("product", product);
-        return "web/product-detail"; // Trỏ tới file templates/web/product-detail.html
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "products/update-product";
+    }
+
+    /**
+     * 5. Xử lý lưu thông tin cập nhật sản phẩm
+     */
+    @PostMapping("/update/{id}")
+    public String updateProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product) {
+        product.setId(id);
+        if (product.getCategory() != null && product.getCategory().getId() != null) {
+            Category category = categoryService.getCategoryById(product.getCategory().getId());
+            product.setCategory(category);
+        }
+        productService.saveProduct(product);
+        return "redirect:/products";
+    }
+
+    /**
+     * 6. Xóa sản phẩm theo ID
+     */
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long id) {
+        productService.deleteProductById(id);
+        return "redirect:/products";
+    }
+
+    /**
+     * 7. Xem chi tiết sản phẩm
+     */
+    @GetMapping("/detail/{productId}")
+    public String showProductDetail(@PathVariable("productId") Long productId, Model model) {
+        Product product = productService.getProductById(productId);
+        if (product == null) {
+            return "redirect:/products";
+        }
+        model.addAttribute("product", product);
+        return "web/product-detail";
     }
 }

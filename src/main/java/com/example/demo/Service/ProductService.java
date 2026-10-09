@@ -72,4 +72,18 @@ public class ProductService {
         // Không có bộ lọc nào → lấy hết
         return productRepository.findAll();
     }
+
+    /**
+     * Thêm mới hoặc cập nhật thông tin sản phẩm.
+     */
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    /**
+     * Xóa sản phẩm theo ID.
+     */
+    public void deleteProductById(Long id) {
+        productRepository.deleteById(id);
+    }
 }

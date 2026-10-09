@@ -18,9 +18,30 @@ public class CategoryService {
 
     /**
      * Lấy toàn bộ danh sách danh mục từ database.
-     * Dùng để render dropdown lọc danh mục trong giao diện.
      */
-    public List<Category> getAllCategories() {
+     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
+
+    /**
+     * Tìm danh mục theo ID.
+     */
+    public Category getCategoryById(Long id) {
+        return categoryRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Thêm mới hoặc cập nhật danh mục.
+     */
+    public Category saveCategory(Category category) {
+        return categoryRepository.save(category);
+    }
+
+    /**
+     * Xóa danh mục theo ID.
+     */
+    public void deleteCategoryById(Long id) {
+        categoryRepository.deleteById(id);
+    }
 }
+

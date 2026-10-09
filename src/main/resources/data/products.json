@@ -1,42 +1,146 @@
 [
   {
     "id": 1,
-    "name": "Bàn Phím Cơ Không Dây K8",
-    "description": "Bàn phím cơ không dây kết nối Bluetooth/Type-C, trang bị Switch Gateron và LED RGB linh hoạt.",
-    "price": 1250000,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSELm7J9lmUQG3DM9oD6y5mcjjhkbYiiVmy5j683gcl8w&s=10",
+    "name": "iPhone 15 Pro Max 256GB Titan Tự Nhiên",
+    "description": "Thiết kế khung viền Titan siêu nhẹ và bền bỉ, màn hình Super Retina XDR 120Hz, chip Apple A17 Pro mạnh mẽ, camera zoom quang 5x đỉnh cao.",
+    "price": 29490000,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80",
     "categoryId": 1
   },
   {
     "id": 2,
-    "name": "Chuột Không Dây Chống Đau Cổ Tay",
-    "description": "Chuột Ergo công xưởng giúp bảo vệ cổ tay, độ phân giải DPI điều chỉnh từ 800 đến 3200.",
-    "price": 450000,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhMwbJw2LaHjtIGUsm3AmcMqaRS79bH6X4I-Gn0K2Tng&s=10",
+    "name": "Samsung Galaxy S24 Ultra 5G 12GB/256GB",
+    "description": "Quyền năng Galaxy AI đỉnh cao, khung viền Titan, màn hình phẳng Dynamic AMOLED 2X sắc nét, tích hợp bút S-Pen và camera 200MP zoom 100x.",
+    "price": 27990000,
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&auto=format&fit=crop&q=80",
     "categoryId": 1
   },
   {
     "id": 3,
-    "name": "Màn Hình 27 inch 144Hz IPS",
-    "description": "Màn hình tấm nền IPS độ phân giải Full HD, tần số quét 144Hz mượt mà cho đồ họa và chơi game.",
-    "price": 4200000,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNsRu2d8A_obW-3XgVar__CztGCxVv1q1bvBwB4ouLQ&s",
-    "categoryId": 2
+    "name": "iPad Pro 11 inch M4 256GB Wi-Fi",
+    "description": "Thiết kế mỏng kỷ lục thế giới chỉ 5.3mm, chip Apple M4 thế hệ mới với hiệu năng AI vượt trội, màn hình Ultra Retina XDR OLED kép tuyệt đẹp.",
+    "price": 26990000,
+    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 1
   },
   {
     "id": 4,
-    "name": "Tai Nghe Chống Ồn ANC Pro",
-    "description": "Tai nghe bluetooth kết nối không dây, tích hợp công nghệ chống ồn chủ động và micro đàm thoại rõ nét.",
-    "price": 2100000,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4EHQv0HMKG_sei5Y4o6XXD8-YVmaDwuJQgv9DO-XCPw&s",
-    "categoryId": 3
+    "name": "MacBook Pro 14 M3 Pro (18GB / 512GB)",
+    "description": "Màu Space Black cực chất, màn hình Liquid Retina XDR 120Hz ProMotion, thời lượng pin ấn tượng lên tới 18 giờ, sức mạnh render đồ họa tuyệt đỉnh.",
+    "price": 45990000,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 2
   },
   {
     "id": 5,
-    "name": "Lót Chuột Bo Viền Khổ Cực Đại",
-    "description": "Lót chuột kích thước 90x40cm, mặt vải trơn mượt, đế cao su chống trượt tuyệt đối.",
-    "price": 150000,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGGBCcH8N4CaCbcpvP4cp6hXuHh1ZQHnbVGTI_axWHxQ&s=10",
-    "categoryId": 1
+    "name": "Laptop ASUS ROG Zephyrus G16 OLED",
+    "description": "Laptop Gaming cao cấp vỏ nhôm CNC mỏng nhẹ, CPU Intel Core Ultra 9, card đồ họa NVIDIA RTX 4070 8GB, màn hình OLED 2.5K 240Hz chuẩn màu.",
+    "price": 48990000,
+    "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 2
+  },
+  {
+    "id": 6,
+    "name": "Dell XPS 15 9530 Core i7 / RTX 4050",
+    "description": "Đỉnh cao laptop doanh nhân và sáng tạo, vỏ nhôm nguyên khối phối sợi carbon, màn hình 3.5K OLED cảm ứng tràn viền InfinityEdge đẳng cấp.",
+    "price": 42500000,
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 2
+  },
+  {
+    "id": 7,
+    "name": "Màn hình Gaming LG UltraGear 27 inch 165Hz",
+    "description": "Độ phân giải 2K QHD (2560x1440), tấm nền Fast IPS 1ms, hỗ trợ công nghệ G-Sync Compatible và HDR10 mang lại hình ảnh mượt mà tuyệt đối.",
+    "price": 4890000,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 3
+  },
+  {
+    "id": 8,
+    "name": "Màn hình Đồ Họa Dell UltraSharp U2724D 2K",
+    "description": "Công nghệ IPS Black cho tỷ lệ tương phản 2000:1, chuẩn màu chuyên nghiệp 100% sRGB, kết nối Thunderbolt 4 và cảm biến tự động chỉnh sáng.",
+    "price": 9990000,
+    "image": "https://images.unsplash.com/photo-1547119957-637f8679db1e?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 3
+  },
+  {
+    "id": 9,
+    "name": "Màn hình Cong Samsung Odyssey G7 32 inch 240Hz",
+    "description": "Độ cong 1000R hoàn hảo góc nhìn, độ phân giải 2K WQHD, tần số quét 240Hz siêu tốc, công nghệ QLED tái tạo dải màu sắc rực rỡ và sống động.",
+    "price": 11500000,
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 3
+  },
+  {
+    "id": 10,
+    "name": "Bàn Phím Cơ Custom MonsGeek M1W V3 SP",
+    "description": "Khung nhôm CNC Anodized cao cấp, hỗ trợ 3 chế độ kết nối (Type-C, 2.4G, Bluetooth), mạch xuôi Hotswap, pin 6000mAh, trải nghiệm gõ phím cực êm.",
+    "price": 2150000,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 4
+  },
+  {
+    "id": 11,
+    "name": "Bàn Phím Logitech MX Keys Mini Không Dây",
+    "description": "Thiết kế công thái học mỏng gọn, phím lõm theo ngón tay gõ cực êm, cảm biến tự động bật đèn nền khi tay đến gần, sạc nhanh qua cổng USB-C.",
+    "price": 1890000,
+    "image": "https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 4
+  },
+  {
+    "id": 12,
+    "name": "Chuột Không Dây Logitech MX Master 3S",
+    "description": "Biểu tượng của hiệu suất làm việc văn phòng, con lăn điện từ MagSpeed cuộn 1000 dòng/giây, cảm biến 8000 DPI lướt mượt trên mọi bề mặt kể cả mặt kính.",
+    "price": 1990000,
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 4
+  },
+  {
+    "id": 13,
+    "name": "Chuột Gaming Siêu Nhẹ Razer Viper V3 Pro",
+    "description": "Trọng lượng siêu nhẹ chỉ 54g chuẩn thi đấu Esports, cảm biến quang học Focus Pro 35K Gen-2, tần số phản hồi không dây HyperPolling 8000Hz.",
+    "price": 3590000,
+    "image": "https://images.unsplash.com/photo-1605773527852-c546a8584ea3?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 4
+  },
+  {
+    "id": 14,
+    "name": "Tai Nghe Chống Ồn Cao Cấp Sony WH-1000XM5",
+    "description": "Công nghệ chống ồn chủ động ANC hàng đầu thế giới với bộ xử lý V1 và QN1, hỗ trợ codec LDAC âm thanh Hi-Res Audio, thời lượng pin 30 giờ liên tục.",
+    "price": 6490000,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 5
+  },
+  {
+    "id": 15,
+    "name": "Tai Nghe True Wireless Apple AirPods Pro 2 Type-C",
+    "description": "Trang bị chip Apple H2 mang đến âm thanh thông minh hơn, chống ồn chủ động gấp đôi, âm thanh không gian cá nhân hóa Spatial Audio sống động.",
+    "price": 5390000,
+    "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 5
+  },
+  {
+    "id": 16,
+    "name": "Loa Bluetooth Di Động Marshall Stanmore III",
+    "description": "Thiết kế phong cách cổ điển Iconic Vintage, âm trường rộng đa hướng lan tỏa khắp căn phòng, kết nối Bluetooth 5.2 và cổng cắm AUX 3.5mm tiện dụng.",
+    "price": 7990000,
+    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 5
+  },
+  {
+    "id": 17,
+    "name": "Củ Sạc Nhanh Anker Prime 67W GaN 3 Cổng",
+    "description": "Công nghệ bán dẫn GaNPrime siêu nhỏ gọn và mát mẻ, công suất 67W sạc nhanh cùng lúc cho Laptop, Tablet và Smartphone thông qua 2 cổng USB-C và 1 USB-A.",
+    "price": 890000,
+    "image": "https://images.unsplash.com/photo-1622445262464-84b14e324513?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 6
+  },
+  {
+    "id": 18,
+    "name": "Bàn Nâng Hạ Công Thái Học Dual Motor 1m4",
+    "description": "Động cơ kép nâng hạ êm ái tải trọng 120kg, mặt bàn gỗ MDF phủ Melamine chống trầy xước, bảng điều khiển cảm ứng nhớ 4 vị trí độ cao thông minh.",
+    "price": 5800000,
+    "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&auto=format&fit=crop&q=80",
+    "categoryId": 6
   }
 ]
